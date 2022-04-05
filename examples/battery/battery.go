@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/aykevl/go-smartwatch"
-	"github.com/conejoninja/tinyfont"
+	"tinygo.org/x/tinyfont"
 )
 
 var watch *smartwatch.Watch
@@ -29,7 +29,7 @@ func main() {
 			chargingString = " charging"
 		}
 		msg := fmt.Sprintf("battery: %d%% (%.3fV)%s", batteryPercent, float32(millivolts)/1000, chargingString)
-		tinyfont.WriteLine(watch, &tinyfont.Org01, 10, 20, []byte(msg), color.RGBA{255, 0, 0, 255})
+		tinyfont.WriteLine(watch, &tinyfont.Org01, 10, 20, msg, color.RGBA{255, 0, 0, 255})
 
 		width, height := watch.Size()
 
